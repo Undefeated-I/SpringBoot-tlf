@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>用户管理</title>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>用户Id</th>
+            <th>用户名</th>
+            <th>用户密码</th>
+            <th>操作</th>
+        </tr>
+        <!--  依次从request对象中获取属性（attribute) userList 赋给变量userInfo -->
+        <tr th:each="userInfo:${userInfoList}">
+           <td th:text="${userInfo.userId}"></td>
+           <td th:text="${userInfo.userName}"></td>
+           <td th:text="${userInfo.userPass}"></td>
+           <td>
+              <a th:href="@{'showUpdateUserInfo?userId='+${userInfo.userId}}">修改</a>
+              <a th:href="@{'deleteUserInfo?userId='+${userInfo.userId}}">删除</a>
+           </td>
+        </tr>
+    </table>
+</body>
+</html>

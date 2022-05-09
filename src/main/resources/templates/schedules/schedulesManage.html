@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>日程管理</title>
+</head>
+<body>
+   <table border="1" cellspacing="0">
+        <tr>
+           <th>日程Id</th>
+           <th>创建者</th>
+           <th>日程日期</th>
+           <th>日程内容</th>
+           <th>创建时间</th>
+           <th>操作</th>
+        </tr>
+        <tr th:each="schedules:${schedulesList}">
+           <td th:text="${schedules.scheduleId}"></td>
+           <td th:text="${schedules.creator.userName}"></td>
+           <td th:text="${#dates.format(schedules.scheduleDate,'yyyy-MM-dd')}"></td>
+           <td th:text="${schedules.content}"></td>
+           <td th:text="${#dates.format(schedules.createTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+           <td>
+           		<a th:href="@{'showUpadteSchedules?scheduleId='+${schedules.scheduleId}}">修改</a>
+           		<a th:href="@{'deleteSchedules?scheduleId='+${schedules.scheduleId}}">删除</a>
+           </td>
+        </tr>
+        
+   </table>
+</body>
+</html>

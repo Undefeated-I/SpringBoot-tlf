@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+你好！<span th:text="${session.userInfo.userName}"></span><br>
+<a th:href="@{'userInfoManage'}">用户管理</a>
+<a th:href="@{'showCreateSchedules'}">创建日程</a>
+<a th:href="@{'selectSchedules'}">日程管理</a>
+
+</body>
+</html>
